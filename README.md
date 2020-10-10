@@ -19,6 +19,6 @@ Deployed Page
 ## Technologies used
 
 * HTML
-*Jquery 
-*Javascript
-*Moment.JS
+* Jquery 
+* Javascript
+* Moment.JS

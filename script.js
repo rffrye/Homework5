@@ -36,7 +36,7 @@ $(document).ready(function () {
         var inputTimeInt = parseInt(inputTime);
         console.log(inputTimeInt);
 
-        // Set color styling based on comparisons between the currentTimeInt and the inputTimeInt
+        // CSS color to respond to time
         if (currentTimeInt === inputTimeInt){
             $("#" + i + "Row").addClass("present");
             
@@ -51,5 +51,32 @@ $(document).ready(function () {
         }
 
     }
+
+    //  BUTTON CLICK
+
+    saveBtn.on("click", function () {
+    // set a variable to select the clicked-on-button's data-hour attribute which we set in the HTML
+    var hour = $(this).attr("data-hour");
+
+    // set a variable to select the value of the user's "plan" (input) at a particular hour
+    var plan = $("#" + hour + "Row").val();
+
+    // save the hour's plan to local storage
+    localStorage.setItem(hour, plan);
+
+});
+
+//  Function to retrieve stored user inputs from local storage and populate the hour's input value with them
+function renderPlans() {
+    // hours to account for: 1, 2, 3, 4, 5, 9, 10, 11, 12
+    // starts at 1 because 1 is the lowest hour
+    for (var i = 0; i <= 12; i++) {
+        // select the 
+        $("#" + i + "Row").val(localStorage.getItem(i));
+    }
+}
+ 
+// call the function to populate the input values with stored data
+ renderPlans();
 
 });

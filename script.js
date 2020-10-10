@@ -62,21 +62,21 @@ $(document).ready(function () {
     var plan = $("#" + hour + "Row").val();
 
     // save the hour's plan to local storage
-    localStorage.setItem(hour, plan);
+    localStorage.setItem("hour", plan);
 
 });
 
-//  Function to retrieve stored user inputs from local storage and populate the hour's input value with them
-function renderPlans() {
+    //  Function to retrieve stored user inputs from local storage and populate the hour's input value with them
+    function renderPlans() {
     // hours to account for: 1, 2, 3, 4, 5, 9, 10, 11, 12
     // starts at 1 because 1 is the lowest hour
-    for (var i = 0; i <= 12; i++) {
-        // select the 
+    for (var i = 1; i <= 12; i++) {
+        // select the value from the attribute assigned above.
         $("#" + i + "Row").val(localStorage.getItem(i));
     }
 }
  
-// call the function to populate the input values with stored data
- renderPlans();
+    // call the function to populate the input values with stored data
+    renderPlans();
 
 });
